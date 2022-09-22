@@ -1,13 +1,14 @@
-import { Button } from 'antd';
-
 import './App.less';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import MyLayout from './components/Layout/MyLayout';
 
-function App() {
-  return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={MyLayout} />
+    </Switch>
+  </Router>
+);
 
 export default App;

@@ -1,3 +1,37 @@
+# Getting Started with React Boilerplate
+
+## Structure
+It is highly recommended to follow the same structure through out the project.
+
+These folders are inside src folder
+### `components` : eg-> Layout, LoginForm, Navbar, Footer, etc
+### `pages` : eg-> Home, Login, SignUp, etc
+### `services`: eg->request, Token services
+### `store`: eg-> store/index 
+
+
+## Packages already installed
+### `Rect-router-dom` : [documentation](https://v5.reactrouter.com/web/guides/quick-start)
+### `React-redux`: [documentation](https://react-redux.js.org/introduction/getting-started)
+### `craco-plugin-scoped-css` : [documentation](https://www.npmjs.com/package/craco-plugin-scoped-css)
+### `antd` : [documentation](https://ant.design/docs/react/introduce)
+### `craco-less` : [documentation](https://ant.design/docs/react/use-with-create-react-app)
+### `prettier` : [documentation](https://prettier.io/docs/en/index.html)
+### `eslint`
+### `husky`
+### pre-commits are added
+
+## Template
+
+[Ant design of React](https://ant.design/docs/react/introduce) is a template for react project and it is highly recommended you to read the documentation.
+
+
+### Components
+Use [Components](https://ant.design/components/overview/) of Ant design build UI
+### How to add custom colors/variables in project
+Add your own variables/colors in craco.config.js 
+[documentation](https://ant.design/docs/react/use-with-create-react-app)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
