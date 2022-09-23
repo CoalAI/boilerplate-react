@@ -1,9 +1,9 @@
 import React from 'react';
-import './Button.css';
+import './Button.scoped.css';
 
 export default function MyButton() {
   return (
-    <button className="btnStyle" type="submit">
+    <button className="btnStyle" type="submit" display="primary">
       Button{' '}
     </button>
   );
