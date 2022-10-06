@@ -1,5 +1,5 @@
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Breadcrumb, Layout, Menu, Input } from 'antd';
 import React from 'react';
 import MyButton from '../UI/Button/MyButton';
 const { Header, Content, Sider } = Layout;
@@ -65,6 +65,7 @@ const MyLayout = () => (
           }}
         >
           <MyButton />
+          <Input />
         </Content>
       </Layout>
     </Layout>
