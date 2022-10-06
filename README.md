@@ -53,6 +53,7 @@ These folders are inside src folder
 * ### type -> Commit Type: feat|fix|docs|style|refactor|test|chore|perf|ci|build|temp
 * ### scope -> : Commit Scope: Optional, can be anything specifying the scope of the commit change. For example $location|$browser|$compile|$rootScope|ngHref|ngClick|ngView, etc. In App Development, scope can be a page, a module or a component.
 * ### short summary -> Summary in present tense. Not capitalized. No period at the end.
+* ### example-> git commit -a -m "test: testing pre-commit"
 <br /> 
 
 ## Testing
