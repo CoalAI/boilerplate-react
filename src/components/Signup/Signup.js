@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styles from './Signup.module.css';
+import { serverRequest } from '../../services/request';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -42,9 +43,18 @@ const Signup = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      console.log('Signup successful');
+      signup();
     }
   }, [formData]);
+
+  const signup = async () => {
+    try {
+        const response = await serverRequest('POST', '/api/signup/', false, formData);
+        console.log('success', response)
+    } catch (error) {
+        console.log(error);
+    }
+  }
 
   return (
     <div className={styles.authContainer}>

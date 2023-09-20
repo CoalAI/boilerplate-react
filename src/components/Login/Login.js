@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import styles from './Login.module.css';
+import TokenService from '../../services/TokenService';
+import { serverRequest } from '../../services/request';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -37,9 +39,18 @@ const Login = () => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      console.log('Login successful');
+      login();
     }
   }, [formData]);
+
+  const login = async () => {
+    try {
+        const response = await serverRequest('POST', '/api/token/', false, formData);
+        TokenService.setUser(response);
+    } catch (error) {
+        console.log(error);
+    }
+  }
 
   return (
     <div className={styles.authContainer}>
