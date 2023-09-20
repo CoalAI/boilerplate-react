@@ -46,7 +46,7 @@ const Login = () => {
   const login = async () => {
     try {
         const response = await serverRequest('POST', '/api/token/', false, formData);
-        TokenService.setUser(response);
+        TokenService.setUser(response.data);
     } catch (error) {
         console.log(error);
     }
