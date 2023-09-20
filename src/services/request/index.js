@@ -1,5 +1,5 @@
 import axios from 'axios';
-import TokenService from 'services/TokenService';
+import TokenService from '../TokenService';
 
 export const serverRequest = async (
   method,
@@ -16,8 +16,6 @@ export const serverRequest = async (
         'Content-Type': contentType,
         Authorization: `Bearer ${TokenService.getLocalAccessToken()}`
       };
-    } else {
-      // TODO: check if auth fails
     }
   }
   const config = {
@@ -28,6 +26,31 @@ export const serverRequest = async (
     headers,
     baseURL: process.env.REACT_APP_BACKEND_BASE_ENDPOINT
   };
-  const response = await axios(config);
-  return response;
+  try{
+    const response = await axios(config);
+    return response;
+  } catch (error) {
+    if (error.response && error.response.status === 401) {
+      await refreshToken();
+      const retryConfig = { ...config, headers: { ...headers } };
+      const response = await axios(retryConfig);
+      return response.data;
+    } else {
+      console.error('Server request error:', error);
+      throw error;
+    }
+  }
 };
+
+async function refreshToken() {
+  console.log(TokenService.getLocalRefreshToken())
+  try {
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_BASE_ENDPOINT}/api/token/refresh/`, {
+      refresh: TokenService.getLocalRefreshToken()
+    });
+    TokenService.updateLocalAccessToken(response.data.access);
+  } catch (error) {
+    console.error('Token refresh error:', error);
+    throw error;
+  }
+}

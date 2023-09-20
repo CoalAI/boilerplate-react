@@ -1,0 +1,19 @@
+.authContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .inputStyle {
+    margin: 8px 0;
+    padding: 8px;
+    width: 60%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .buttonStyle{
+    width: 60%
+  }
