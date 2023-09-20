@@ -9,8 +9,8 @@ const App = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={MyLayout} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/signup" component={Signup} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
     </Switch>
   </Router>
 );
